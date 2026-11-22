@@ -1,10 +1,10 @@
 /* taller.ink · portada de proyectos */
 :root {
-  --papel: #f6f3ec;
-  --tinta: #1d1a16;
-  --tinta-2: #5f584e;
-  --linea: #e2dccf;
-  --sombra: #1d1a16;
+  --papel: #e9eef3;
+  --tinta: #15191e;
+  --tinta-2: #4a5562;
+  --linea: #c6d0da;
+  --sombra: #15191e;
 }
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
@@ -12,7 +12,7 @@ body {
   margin: 0;
   background: var(--papel);
   color: var(--tinta);
-  font: 16px/1.5 "Inter", system-ui, sans-serif;
+  font: 16px/1.5 "Bricolage Grotesque", system-ui, sans-serif;
 }
 a { color: inherit; }
 
@@ -20,7 +20,7 @@ a { color: inherit; }
 .top { max-width: 760px; margin: 0 auto; padding: 64px 20px 28px; text-align: center; }
 .marca {
   margin: 0;
-  font-family: "Bricolage Grotesque", "Inter", sans-serif;
+  font-family: "Bricolage Grotesque", system-ui, sans-serif;
   font-weight: 800;
   font-size: clamp(56px, 13vw, 112px);
   letter-spacing: -0.045em;
@@ -30,7 +30,7 @@ a { color: inherit; }
 }
 .marca .gota { width: .26em; height: .34em; margin: 0 .04em 0 .06em; fill: var(--tinta); transform-origin: 50% 100%; animation: gota 4.5s ease-in-out infinite; }
 @keyframes gota { 0%, 86%, 100% { transform: translateY(0) scaleY(1); } 90% { transform: translateY(.04em) scaleY(.86); } 94% { transform: translateY(-.05em) scaleY(1.08); } }
-.bajada { margin: 22px auto 0; max-width: 34em; color: var(--tinta-2); font-size: 17px; }
+.bajada { margin: 22px auto 0; max-width: 34em; color: var(--tinta-2); font-size: 18px; }
 
 main { max-width: 1160px; margin: 0 auto; padding: 0 20px 40px; }
 
@@ -53,7 +53,7 @@ main { max-width: 1160px; margin: 0 auto; padding: 0 20px 40px; }
 /* Card base: cada tema rellena estas variables */
 .card {
   --fondo: #fff; --arte: #eee; --texto: #111; --suave: #555; --acento: #333;
-  --letra: "Inter", sans-serif; --titulo: var(--letra); --radio: 18px; --borde: var(--sombra);
+  --letra: "Bricolage Grotesque", sans-serif; --titulo: var(--letra); --radio: 18px; --borde: var(--sombra);
   position: relative;
   display: flex; flex-direction: column;
   background: var(--fondo);
@@ -115,7 +115,7 @@ main { max-width: 1160px; margin: 0 auto; padding: 0 20px 40px; }
 .t-gato:hover .papel { transform: translateY(-8px); }
 
 /* Cabina de fotos: tira impresa, negro y rojo */
-.t-cabina { --fondo: #161616; --arte: #222; --texto: #f4f1ea; --suave: #b5b0a6; --acento: #c8211c; --titulo: "Bebas Neue", sans-serif; --letra: "Inter", sans-serif; --radio: 4px; }
+.t-cabina { --fondo: #161616; --arte: #222; --texto: #f4f1ea; --suave: #b5b0a6; --acento: #c8211c; --titulo: "Bebas Neue", sans-serif; --letra: "Archivo Narrow", sans-serif; --radio: 4px; }
 .t-cabina h3 { font-size: 30px; font-weight: 400; letter-spacing: .02em; line-height: 1; }
 .t-cabina .tira { transform-box: view-box; transform-origin: 98px 60px; transform: rotate(6deg); transition: transform .35s; }
 .t-cabina:hover .tira { transform: rotate(1deg) translateY(-3px); }
@@ -140,6 +140,7 @@ main { max-width: 1160px; margin: 0 auto; padding: 0 20px 40px; }
 
 /* ByteFix: escritorio retro */
 .t-bytefix { --fondo: #c0c0c0; --arte: #008080; --texto: #000; --suave: #222; --acento: #000080; --titulo: "VT323", monospace; --letra: "Space Mono", monospace; --radio: 0; }
+.t-bytefix .art { color: #fff; }
 .t-bytefix h3 { font-size: 30px; font-weight: 400; line-height: 1; }
 .t-bytefix p { font-size: 13px; }
 .t-bytefix .tag { border-radius: 0; }
@@ -170,7 +171,8 @@ main { max-width: 1160px; margin: 0 auto; padding: 0 20px 40px; }
   .card { border-radius: min(var(--radio), 12px); box-shadow: 0 4px 0 var(--sombra); }
   .cuerpo { padding: 10px 11px 12px; }
   .card h3 { font-size: 17px; }
-  .t-cabina h3, .t-bytefix h3 { font-size: 23px; }
+  .t-cabina h3, .t-bytefix .art { color: #fff; }
+.t-bytefix h3 { font-size: 23px; }
   .card p, .t-qr p, .t-bytefix p, .t-taskq p { font-size: 12.5px; line-height: 1.4; margin-bottom: 10px; }
   .pie { font-size: 11px; gap: 6px; }
   .tag { padding: 2px 7px; white-space: normal; }
@@ -180,3 +182,7 @@ main { max-width: 1160px; margin: 0 auto; padding: 0 20px 40px; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+/* Ilustraciones con texto: margen interior para que el texto nunca toque el borde */
+.t-taskq .art, .t-bytefix .art { padding: 12px; }
+.t-taskq .art svg, .t-bytefix .art svg { inset: 12px; width: calc(100% - 24px); height: calc(100% - 24px); }
