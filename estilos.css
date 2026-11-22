@@ -53,7 +53,7 @@ main { max-width: 1160px; margin: 0 auto; padding: 0 20px 40px; }
 /* Card base: cada tema rellena estas variables */
 .card {
   --fondo: #fff; --arte: #eee; --texto: #111; --suave: #555; --acento: #333;
-  --letra: "Bricolage Grotesque", sans-serif; --titulo: var(--letra); --radio: 18px;
+  --letra: "Bricolage Grotesque", sans-serif; --titulo: var(--letra); --radio: 4px;
   position: relative;
   display: flex; flex-direction: column;
   background: var(--fondo);
@@ -89,58 +89,58 @@ main { max-width: 1160px; margin: 0 auto; padding: 0 20px 40px; }
 /* ---------- Temas ---------- */
 
 /* Tiempos: papel cálido, IBM Plex, naranja "corriendo" */
-.t-tiempos { --fondo: #fbfaf7; --arte: #f3f2ee; --texto: #191917; --suave: #4a4843; --acento: #b5461a; --letra: "IBM Plex Sans", sans-serif; --radio: 8px; }
+.t-tiempos { --fondo: #fbfaf7; --arte: #f3f2ee; --texto: #191917; --suave: #4a4843; --acento: #b5461a; --letra: "IBM Plex Sans", sans-serif; }
 .t-tiempos .aguja { transform-origin: 95px 64px; transform-box: view-box; transform: rotate(150deg); transition: transform 1.2s cubic-bezier(.2, .8, .2, 1); }
 .t-tiempos:hover .aguja { transform: rotate(510deg); }
 
 /* Trazo: la ventana de Paint, azul de Windows */
-.t-trazo { --fondo: #fbfbfb; --arte: #e6e7ea; --texto: #1b1b1b; --suave: #5d5d5d; --acento: #005fb8; --letra: "Segoe UI Variable Text", "Segoe UI", "Noto Sans", system-ui, sans-serif; --radio: 8px; }
+.t-trazo { --fondo: #fbfbfb; --arte: #e6e7ea; --texto: #1b1b1b; --suave: #5d5d5d; --acento: #005fb8; --letra: "Segoe UI Variable Text", "Segoe UI", "Noto Sans", system-ui, sans-serif; }
 .t-trazo h3 { font-weight: 600; }
 .t-trazo .trazo { stroke-dasharray: 160; stroke-dashoffset: 0; }
 .t-trazo:hover .trazo { animation: dibujar 1s ease-out; }
 @keyframes dibujar { from { stroke-dashoffset: 160; } }
 
 /* Butaca: azul noche de sala, Inter */
-.t-butaca { --fondo: #0b1a3a; --arte: #06122b; --texto: #e9eef7; --suave: #93a4c2; --acento: #3d8bfd; --sobre-acento: #06122b; --letra: "Inter", sans-serif; --radio: 12px; }
+.t-butaca { --fondo: #0b1a3a; --arte: #06122b; --texto: #e9eef7; --suave: #93a4c2; --acento: #3d8bfd; --sobre-acento: #06122b; --letra: "Inter", sans-serif; }
 .t-butaca h3 { font-weight: 700; letter-spacing: -.01em; }
 .t-butaca .mia { transition: fill .3s; }
 .t-butaca:hover .mia { fill: #8cbcff; }
 
 /* Cat Printer: papel térmico y máquina de escribir */
-.t-gato { --fondo: #fffdf6; --arte: #ebe5d6; --texto: #2a2723; --suave: #5b544a; --acento: #2a2723; --letra: "Courier Prime", monospace; --radio: 6px; }
+.t-gato { --fondo: #fffdf6; --arte: #ebe5d6; --texto: #2a2723; --suave: #5b544a; --acento: #2a2723; --letra: "Courier Prime", monospace; }
 .t-gato h3 { font-weight: 700; letter-spacing: -.02em; }
 .t-gato .art { border-bottom: 2px dashed #2a2723; }
 .t-gato .papel { transition: transform .5s cubic-bezier(.3, 1.4, .5, 1); }
 .t-gato:hover .papel { transform: translateY(-8px); }
 
 /* Cabina de fotos: tira impresa, negro y rojo */
-.t-cabina { --fondo: #161616; --arte: #222; --texto: #f4f1ea; --suave: #b5b0a6; --acento: #c8211c; --titulo: "Bebas Neue", sans-serif; --letra: "Archivo Narrow", sans-serif; --radio: 4px; }
+.t-cabina { --fondo: #161616; --arte: #222; --texto: #f4f1ea; --suave: #b5b0a6; --acento: #c8211c; --titulo: "Bebas Neue", sans-serif; --letra: "Archivo Narrow", sans-serif; }
 .t-cabina .extra { color: #ff6b5e; }
 .t-cabina h3 { font-size: 30px; font-weight: 400; letter-spacing: .02em; line-height: 1; }
 .t-cabina .tira { transform-box: view-box; transform-origin: 98px 60px; transform: rotate(6deg); transition: transform .35s; }
 .t-cabina:hover .tira { transform: rotate(1deg) translateY(-3px); }
 
 /* Luces aRGB: placa oscura, Chakra Petch */
-.t-luces { --fondo: #1e1e1e; --arte: #141414; --texto: #e0e0e0; --suave: #a7a7a7; --acento: #1E90FF; --sobre-acento: #0a0a0a; --letra: "Chakra Petch", sans-serif; --radio: 14px; }
+.t-luces { --fondo: #1e1e1e; --arte: #141414; --texto: #e0e0e0; --suave: #a7a7a7; --acento: #1E90FF; --sobre-acento: #0a0a0a; --letra: "Chakra Petch", sans-serif; }
 .t-luces h3 { font-weight: 600; }
 .t-luces:hover .led { animation: ronda 1.1s ease-in-out infinite; animation-delay: calc(var(--i) * .08s); }
 @keyframes ronda { 0%, 100% { opacity: 1; } 50% { opacity: .25; } }
 
 /* Captura de streams: celeste y rojo de grabación, Manrope */
-.t-captura { --fondo: #f1fcfd; --arte: #c5f0f5; --texto: #0e2a2e; --suave: #3f5d61; --acento: #b60808; --letra: "Manrope", sans-serif; --radio: 22px; }
+.t-captura { --fondo: #f1fcfd; --arte: #c5f0f5; --texto: #0e2a2e; --suave: #3f5d61; --acento: #b60808; --letra: "Manrope", sans-serif; }
 .t-captura h3 { font-weight: 800; letter-spacing: -.02em; }
 .t-captura:hover .cadena { animation: correr .8s linear infinite; }
 @keyframes correr { to { stroke-dashoffset: -18; } }
 
 /* Nosotros: rosa de la app, letra del sistema */
-.t-nosotros { --fondo: #fff1f2; --arte: #ffe4e6; --texto: #2a1519; --suave: #7c5a60; --acento: #be123c; --sobre-acento: #fff; --letra: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; --radio: 20px; }
+.t-nosotros { --fondo: #fff1f2; --arte: #ffe4e6; --texto: #2a1519; --suave: #7c5a60; --acento: #be123c; --sobre-acento: #fff; --letra: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
 .t-nosotros h3 { font-weight: 800; letter-spacing: -.01em; }
 .t-nosotros .latido { transform-box: fill-box; transform-origin: center; }
 .t-nosotros:hover .latido { animation: latido .9s ease-in-out infinite; }
 @keyframes latido { 0%, 100% { transform: scale(1); } 20% { transform: scale(1.18); } 40% { transform: scale(1); } 60% { transform: scale(1.1); } }
 
 /* Cuadro de descarga: toma el tema de la card que lo abre */
-:where(.dialogo) { --fondo: #fff; --arte: #eee; --texto: #111; --suave: #555; --acento: #333; --letra: "Bricolage Grotesque", sans-serif; --titulo: var(--letra); --radio: 18px; }
+:where(.dialogo) { --fondo: #fff; --arte: #eee; --texto: #111; --suave: #555; --acento: #333; --letra: "Bricolage Grotesque", sans-serif;  --titulo: var(--letra); --radio: 4px; }
 .dialogo {
   width: min(380px, calc(100vw - 32px)); padding: 0; border: 0;
   background: var(--fondo); color: var(--texto); font-family: var(--letra);
