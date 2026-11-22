@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>taller.ink</title>
+<title>Taller</title>
 <meta name="description" content="Todo lo que sale del taller: apps web, programas para Windows y Android, y aparatos con luces.">
 <meta name="theme-color" content="#e9eef3">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3C16 3 6 15 6 21a10 10 0 0 0 20 0C26 15 16 3 16 3z' fill='%2315191e'/%3E%3C/svg%3E">
@@ -83,9 +83,31 @@
         <div class="pie"><span class="tag">Web · con cuenta</span></div>
       </div>
     </li>
+
+    <!-- Nosotros -->
+    <li class="card t-nosotros">
+      <div class="art" aria-hidden="true">
+        <svg viewBox="0 0 160 120">
+          <circle cx="56" cy="48" r="20" fill="#e11d48"/>
+          <circle cx="104" cy="48" r="20" fill="#6d5bd0"/>
+          <path class="latido" d="M80 66s-17-10-17-22c0-6 4.6-10 9.6-10 3.2 0 5.7 1.6 7.4 4 1.7-2.4 4.2-4 7.4-4 5 0 9.6 4 9.6 10 0 12-17 22-17 22z" fill="#fff" stroke="#2a1519" stroke-width="2.5" stroke-linejoin="round"/>
+          <g transform="translate(25 86)">
+            <rect width="14" height="14" rx="7" fill="#f43f5e"/><rect x="16" width="14" height="14" rx="7" fill="#f43f5e"/>
+            <rect x="32" width="14" height="14" rx="7" fill="#fff" stroke="#f3c9cf" stroke-width="2"/><rect x="48" width="14" height="14" rx="7" fill="#14b8a6"/>
+            <rect x="64" width="14" height="14" rx="7" fill="#f59e0b"/><rect x="80" width="14" height="14" rx="7" fill="#fff" stroke="#f3c9cf" stroke-width="2"/>
+            <rect x="96" width="14" height="14" rx="7" fill="#e11d48"/>
+          </g>
+        </svg>
+      </div>
+      <div class="cuerpo">
+        <h3><a href="https://nosotros-app.xyz">Nosotros</a></h3>
+        <p>Una app para dos: calendario compartido, días para verse y avisos entre la pareja.</p>
+        <div class="pie"><span class="tag">Web · Android</span><a class="extra" href="https://github.com/MiInfcl/nosotros-android/releases/download/v5/Nosotros.apk">Descargar APK</a></div>
+      </div>
+    </li>
   </ul>
 
-  <h2 class="grupo"><span>Se instalan o corren en tu equipo</span></h2>
+  <h2 class="grupo"><span>Se descargan e instalan</span></h2>
   <ul class="grilla" role="list">
 
     <!-- Cat Printer -->
@@ -103,9 +125,9 @@
         </svg>
       </div>
       <div class="cuerpo">
-        <h3><span>Cat Printer</span></h3>
+        <h3><a href="descargas/CatPrinter.exe" download>Cat Printer</a></h3>
         <p>Imprime en las impresoras térmicas «gato» por Bluetooth, y un puente que las deja como impresoras normales de Windows.</p>
-        <div class="pie"><span class="tag">Windows</span><span class="dom">uso propio</span></div>
+        <div class="pie"><span class="tag">Windows</span><span class="dom">.exe · 22 MB</span><a class="extra" href="descargas/CatPrinterPuente.exe" download>Puente .exe</a></div>
       </div>
     </li>
 
@@ -123,9 +145,9 @@
         </svg>
       </div>
       <div class="cuerpo">
-        <h3><span>Cabina de fotos</span></h3>
+        <h3><a href="descargas/CatPrinterCabina.exe" download>Cabina de fotos</a></h3>
         <p>Tres fotos, un marco y un texto, impresos en tira: una copia por impresora. Para PC y Android.</p>
-        <div class="pie"><span class="tag">Windows · Android</span><span class="dom">uso propio</span></div>
+        <div class="pie"><span class="tag">Windows · Android</span><span class="dom">.exe · 22 MB</span><a class="extra" href="descargas/CatPrinterCabina.apk" download>Descargar APK</a></div>
       </div>
     </li>
 
@@ -140,9 +162,9 @@
         </svg>
       </div>
       <div class="cuerpo">
-        <h3><span>Luces aRGB</span></h3>
+        <h3><a href="descargas/LucesARGB.apk" download>Luces aRGB</a></h3>
         <p>Diez LED de colores en un ESP32, manejados desde el teléfono por Bluetooth, WiFi o un control infrarrojo.</p>
-        <div class="pie"><span class="tag">Android · ESP32</span><span class="dom">uso propio</span></div>
+        <div class="pie"><span class="tag">Android · ESP32</span><span class="dom">APK · 1,6 MB</span></div>
       </div>
     </li>
 
@@ -160,66 +182,9 @@
         </svg>
       </div>
       <div class="cuerpo">
-        <h3><span>Captura de streams</span></h3>
+        <h3><a href="descargas/CapturaStreams.apk" download>Captura de streams</a></h3>
         <p>Un navegador para Android que encuentra los videos de una página y copia sus enlaces.</p>
-        <div class="pie"><span class="tag">Android</span><span class="dom">uso propio</span></div>
-      </div>
-    </li>
-
-    <!-- QR editables -->
-    <li class="card t-qr">
-      <div class="art" aria-hidden="true">
-        <svg viewBox="0 0 160 120">
-          <path class="modulos" fill="#111"/>
-          <g fill="none" stroke="#111" stroke-width="4.6"><rect x="34" y="14.3" width="27.6" height="27.6"/><rect x="93.8" y="14.3" width="27.6" height="27.6"/><rect x="34" y="74.1" width="27.6" height="27.6"/></g>
-          <g fill="#111"><rect x="40.9" y="21.2" width="13.8" height="13.8"/><rect x="100.7" y="21.2" width="13.8" height="13.8"/><rect x="40.9" y="81" width="13.8" height="13.8"/></g>
-          <g transform="rotate(40 122 86)"><rect x="116" y="58" width="11" height="36" rx="2" fill="#0d6efd" stroke="#fff" stroke-width="2"/><path d="M116 94h11l-5.5 9z" fill="#f3e2c4" stroke="#fff" stroke-width="2"/></g>
-        </svg>
-      </div>
-      <div class="cuerpo">
-        <h3><span>QR editables</span></h3>
-        <p>Códigos QR que se imprimen una vez y después apuntan a donde quieras. Web y ejecutable portable.</p>
-        <div class="pie"><span class="tag">Web local · Windows</span><span class="dom">uso propio</span></div>
-      </div>
-    </li>
-
-    <!-- ByteFix -->
-    <li class="card t-bytefix">
-      <div class="art" aria-hidden="true">
-        <svg viewBox="0 0 160 120">
-          <rect x="22" y="14" width="116" height="92" fill="#c0c0c0"/>
-          <path d="M22 106V14h116" fill="none" stroke="#fff" stroke-width="2"/><path d="M22 106h116V14" fill="none" stroke="#404040" stroke-width="2"/>
-          <rect x="26" y="18" width="108" height="14" fill="#000080"/>
-          <text x="31" y="29" font-family="VT323, monospace" font-size="13" fill="#fff">ByteFix</text>
-          <rect x="122" y="21" width="9" height="8" fill="#c0c0c0" stroke="#404040"/>
-          <rect x="30" y="38" width="100" height="62" fill="#fff" stroke="#808080"/>
-          <g class="llave"><path d="M70 69h28" stroke="#404040" stroke-width="8" stroke-linecap="round"/><circle cx="66" cy="69" r="11" fill="#808080"/><rect x="60" y="64" width="9" height="10" fill="#fff"/></g>
-          <rect x="36" y="88" width="30" height="6" fill="#aa0000"/>
-        </svg>
-      </div>
-      <div class="cuerpo">
-        <h3><span>ByteFix</span></h3>
-        <p>Servicio técnico en la web: tickets, presupuestos y cuentas para clientes, técnicos y administración.</p>
-        <div class="pie"><span class="tag">Web local</span><span class="dom">uso propio</span></div>
-      </div>
-    </li>
-
-    <!-- taskq -->
-    <li class="card t-taskq">
-      <div class="art" aria-hidden="true">
-        <svg viewBox="0 0 160 120" font-family="'JetBrains Mono', monospace" font-size="10">
-          <text x="14" y="24" fill="#9be37a">$ taskq add backup</text>
-          <g fill="#5e6b58"><rect x="14" y="38" width="132" height="14" rx="2"/></g>
-          <rect x="14" y="38" width="96" height="14" rx="2" fill="#9be37a"/>
-          <text x="18" y="48" fill="#11140f" font-weight="700">1 corriendo</text>
-          <g fill="#c9d1c3"><text x="14" y="70">2 en cola</text><text x="14" y="86">3 en cola</text></g>
-          <text x="14" y="104" fill="#9be37a">$ <tspan class="cursor">_</tspan></text>
-        </svg>
-      </div>
-      <div class="cuerpo">
-        <h3><span>taskq</span></h3>
-        <p>Cola de tareas para la terminal, en Python puro y sin dependencias.</p>
-        <div class="pie"><span class="tag">Terminal</span><span class="dom">uso propio</span></div>
+        <div class="pie"><span class="tag">Android</span><span class="dom">APK · 0,9 MB</span></div>
       </div>
     </li>
   </ul>
@@ -227,7 +192,7 @@
 
 <footer class="pie-sitio">
   <svg class="gota" viewBox="0 0 32 40" aria-hidden="true"><path d="M16 2S4 18 4 26a12 12 0 0 0 24 0C28 18 16 2 16 2z"/></svg>
-  <p>Hecho en el taller. Las tarjetas sin enlace son herramientas de uso propio, sin descarga pública.</p>
+  <p>Hecho en el taller. Los instaladores no van firmados: Windows y Android te pedirán confirmar antes de abrirlos.</p>
 </footer>
 
 <script>
@@ -243,19 +208,6 @@
             '<circle cx="' + x + '" cy="60" r="4.5" fill="' + c + '"/><circle cx="' + (x - 1.4) + '" cy="58.6" r="1.4" fill="#fff" opacity=".8"/></g>';
   });
   g.innerHTML = html;
-})();
-// QR: módulos fijos (semilla), sin tocar las tres esquinas
-(function () {
-  var p = document.querySelector('.t-qr .modulos');
-  if (!p) return;
-  var s = 7, N = 21, c = 4.6, ox = 34, oy = 14.3, d = '';
-  function r() { s = (s * 16807) % 2147483647; return s / 2147483647; }
-  function esquina(x, y) { return (x < 8 && y < 8) || (x > N - 9 && y < 8) || (x < 8 && y > N - 9); }
-  for (var y = 0; y < N; y++) for (var x = 0; x < N; x++) {
-    if (esquina(x, y) || r() > 0.5) continue;
-    d += 'M' + (ox + x * c - 2.3).toFixed(1) + ' ' + (oy + y * c - 2.3).toFixed(1) + 'h' + c + 'v' + c + 'h-' + c + 'z';
-  }
-  p.setAttribute('d', d);
 })();
 </script>
 </body>
