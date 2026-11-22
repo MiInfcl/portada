@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Taller</title>
 <meta name="description" content="Todo lo que sale del taller: apps web, programas para Windows y Android, y aparatos con luces.">
-<meta name="theme-color" content="#e9eef3">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3C16 3 6 15 6 21a10 10 0 0 0 20 0C26 15 16 3 16 3z' fill='%2315191e'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#f6f3ec">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3C16 3 6 15 6 21a10 10 0 0 0 20 0C26 15 16 3 16 3z' fill='%231d1a16'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,800&family=IBM+Plex+Sans:wght@400;600&family=Inter:wght@400;600;700&family=Space+Mono:wght@400;700&family=VT323&family=JetBrains+Mono:wght@400;700&family=Courier+Prime:wght@400;700&family=Bebas+Neue&family=Archivo+Narrow:wght@400;600&family=Chakra+Petch:wght@400;600&family=Manrope:wght@400;700;800&display=swap">
@@ -41,7 +41,7 @@
       <div class="cuerpo">
         <h3><a href="https://tiempos.taller.ink">Tiempos</a></h3>
         <p>Un cronómetro por persona, hasta cien, y uno general que los suma.</p>
-        <div class="pie"><span class="tag">Web</span><span class="dom">tiempos.taller.ink</span></div>
+        <div class="pie"><span class="tag">Web</span></div>
       </div>
     </li>
 
@@ -111,7 +111,7 @@
   <ul class="grilla" role="list">
 
     <!-- Cat Printer -->
-    <li class="card t-gato">
+    <li class="card t-gato descarga" data-archivos="CatPrinter.exe;El programa;Windows · 22 MB|CatPrinterPuente.exe;Puente a impresora de Windows;Windows · 26 MB">
       <div class="art" aria-hidden="true">
         <svg viewBox="0 0 160 120">
           <g class="papel"><path d="M58 70V14l4 -4 4 4 4-4 4 4 4-4 4 4 4-4 4 4 4-4 4 4 4-4v56z" fill="#fffdf6" stroke="#2a2723" stroke-width="2"/>
@@ -127,12 +127,12 @@
       <div class="cuerpo">
         <h3><a href="descargas/CatPrinter.exe" download>Cat Printer</a></h3>
         <p>Imprime en las impresoras térmicas «gato» por Bluetooth, y un puente que las deja como impresoras normales de Windows.</p>
-        <div class="pie"><span class="tag">Windows</span><span class="dom">.exe · 22 MB</span><a class="extra" href="descargas/CatPrinterPuente.exe" download>Puente .exe</a></div>
+        <div class="pie"><span class="tag">Windows</span><span class="dom">2 archivos</span></div>
       </div>
     </li>
 
     <!-- Cabina de fotos -->
-    <li class="card t-cabina">
+    <li class="card t-cabina descarga" data-archivos="CatPrinterCabina.exe;Para PC;Windows · 22 MB|CatPrinterCabina.apk;Para teléfono;Android · 2,1 MB">
       <div class="art" aria-hidden="true">
         <svg viewBox="0 0 160 120">
           <g transform="rotate(-9 62 60)"><rect x="40" y="6" width="40" height="112" fill="#eae6dc"/></g>
@@ -147,12 +147,12 @@
       <div class="cuerpo">
         <h3><a href="descargas/CatPrinterCabina.exe" download>Cabina de fotos</a></h3>
         <p>Tres fotos, un marco y un texto, impresos en tira: una copia por impresora. Para PC y Android.</p>
-        <div class="pie"><span class="tag">Windows · Android</span><span class="dom">.exe · 22 MB</span><a class="extra" href="descargas/CatPrinterCabina.apk" download>Descargar APK</a></div>
+        <div class="pie"><span class="tag">Windows · Android</span><span class="dom">2 archivos</span></div>
       </div>
     </li>
 
     <!-- Luces aRGB -->
-    <li class="card t-luces">
+    <li class="card t-luces descarga" data-archivos="LucesARGB.apk;App de control;Android · 1,6 MB">
       <div class="art" aria-hidden="true">
         <svg viewBox="0 0 160 120">
           <defs><filter id="brillo" x="-1" y="-1" width="3" height="3"><feGaussianBlur stdDeviation="5"/></filter></defs>
@@ -169,7 +169,7 @@
     </li>
 
     <!-- Captura de streams -->
-    <li class="card t-captura">
+    <li class="card t-captura descarga" data-archivos="CapturaStreams.apk;La app;Android · 0,9 MB">
       <div class="art" aria-hidden="true">
         <svg viewBox="0 0 160 120">
           <rect x="20" y="12" width="96" height="96" rx="12" fill="#fff" stroke="#0e2a2e" stroke-width="3"/>
@@ -195,7 +195,45 @@
   <p>Hecho en el taller. Los instaladores no van firmados: Windows y Android te pedirán confirmar antes de abrirlos.</p>
 </footer>
 
+<dialog class="dialogo" id="dialogo" aria-labelledby="dialogo-titulo">
+  <form method="dialog" class="dialogo-caja">
+    <p class="dialogo-sobre">Elige qué descargar</p>
+    <h2 id="dialogo-titulo"></h2>
+    <ul class="archivos" role="list"></ul>
+    <button class="cerrar" value="cerrar" aria-label="Cerrar"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15"/></svg></button>
+  </form>
+</dialog>
+
 <script>
+// Descargas: la card abre un cuadro con su mismo tema para elegir el archivo
+(function () {
+  var dlg = document.getElementById('dialogo');
+  if (!dlg || !dlg.showModal) return;
+  var lista = dlg.querySelector('.archivos'), titulo = dlg.querySelector('h2');
+  document.querySelectorAll('.card.descarga h3 a').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      var card = a.closest('.card');
+      var tema = [].filter.call(card.classList, function (c) { return c.indexOf('t-') === 0; })[0];
+      dlg.className = 'dialogo ' + tema;
+      titulo.textContent = a.textContent;
+      lista.innerHTML = '';
+      card.dataset.archivos.split('|').forEach(function (fila) {
+        var p = fila.split(';'), li = document.createElement('li'), l = document.createElement('a');
+        l.href = 'descargas/' + p[0]; l.setAttribute('download', '');
+        l.innerHTML = '<span class="nombre"></span><span class="que"></span><span class="peso"></span>' +
+          '<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 3v10M5 9l5 5 5-5M4 17h12"/></svg>';
+        l.querySelector('.nombre').textContent = p[0];
+        l.querySelector('.que').textContent = p[1];
+        l.querySelector('.peso').textContent = p[2];
+        l.addEventListener('click', function () { setTimeout(function () { dlg.close(); }, 150); });
+        li.appendChild(l); lista.appendChild(li);
+      });
+      dlg.showModal();
+    });
+  });
+  dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+})();
 // Luces: diez LED con su brillo
 (function () {
   var g = document.querySelector('.t-luces .leds');

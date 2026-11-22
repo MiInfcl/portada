@@ -1,10 +1,11 @@
 /* taller.ink · portada de proyectos */
 :root {
-  --papel: #e9eef3;
-  --tinta: #15191e;
-  --tinta-2: #4a5562;
-  --linea: #c6d0da;
-  --sombra: #15191e;
+  --papel: #f6f3ec;
+  --tinta: #1d1a16;
+  --tinta-2: #5f584e;
+  --linea: #e2dccf;
+  --sombra-1: 0 1px 2px rgba(60, 44, 24, .08), 0 10px 24px -10px rgba(60, 44, 24, .22);
+  --sombra-2: 0 2px 4px rgba(60, 44, 24, .08), 0 22px 40px -14px rgba(60, 44, 24, .32);
 }
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
@@ -52,23 +53,22 @@ main { max-width: 1160px; margin: 0 auto; padding: 0 20px 40px; }
 /* Card base: cada tema rellena estas variables */
 .card {
   --fondo: #fff; --arte: #eee; --texto: #111; --suave: #555; --acento: #333;
-  --letra: "Bricolage Grotesque", sans-serif; --titulo: var(--letra); --radio: 18px; --borde: var(--sombra);
+  --letra: "Bricolage Grotesque", sans-serif; --titulo: var(--letra); --radio: 18px;
   position: relative;
   display: flex; flex-direction: column;
   background: var(--fondo);
   color: var(--texto);
-  border: 2px solid var(--borde);
   border-radius: var(--radio);
-  box-shadow: 0 6px 0 var(--sombra);
+  box-shadow: var(--sombra-1);
   overflow: hidden;
   font-family: var(--letra);
   transition: transform .22s cubic-bezier(.3, 1.6, .5, 1), box-shadow .22s;
 }
 .card:nth-child(odd):hover, .card:nth-child(odd):focus-within { transform: translateY(-6px) rotate(-1.2deg); }
 .card:nth-child(even):hover, .card:nth-child(even):focus-within { transform: translateY(-6px) rotate(1.2deg); }
-.card:hover, .card:focus-within { box-shadow: 0 12px 0 var(--sombra); }
-.card:nth-child(n):not(:has(h3 a)):hover, .card:nth-child(n):not(:has(h3 a)):focus-within { transform: none; box-shadow: 0 6px 0 var(--sombra); }
-.card:has(h3 a):active { transform: translateY(2px); box-shadow: 0 2px 0 var(--sombra); transition-duration: .06s; }
+.card:hover, .card:focus-within { box-shadow: var(--sombra-2); }
+.card:nth-child(n):not(:has(h3 a)):hover, .card:nth-child(n):not(:has(h3 a)):focus-within { transform: none; box-shadow: var(--sombra-1); }
+.card:has(h3 a):active { transform: translateY(1px); box-shadow: var(--sombra-1); transition-duration: .06s; }
 
 .art { position: relative; aspect-ratio: 4 / 3; background: var(--arte); overflow: hidden; }
 .art svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
@@ -139,6 +139,38 @@ main { max-width: 1160px; margin: 0 auto; padding: 0 20px 40px; }
 .t-nosotros:hover .latido { animation: latido .9s ease-in-out infinite; }
 @keyframes latido { 0%, 100% { transform: scale(1); } 20% { transform: scale(1.18); } 40% { transform: scale(1); } 60% { transform: scale(1.1); } }
 
+/* Cuadro de descarga: toma el tema de la card que lo abre */
+:where(.dialogo) { --fondo: #fff; --arte: #eee; --texto: #111; --suave: #555; --acento: #333; --letra: "Bricolage Grotesque", sans-serif; --titulo: var(--letra); --radio: 18px; }
+.dialogo {
+  width: min(380px, calc(100vw - 32px)); padding: 0; border: 0;
+  background: var(--fondo); color: var(--texto); font-family: var(--letra);
+  border-radius: var(--radio); box-shadow: var(--sombra-2);
+}
+.dialogo[open] { animation: aparecer .24s cubic-bezier(.3, 1.4, .5, 1); }
+.dialogo::backdrop { background: rgba(29, 26, 22, .38); }
+@keyframes aparecer { from { opacity: 0; transform: translateY(12px) scale(.96); } }
+.dialogo-caja { position: relative; padding: 20px 20px 18px; }
+.dialogo-sobre { margin: 0; font-size: 13px; color: var(--suave); }
+.dialogo h2 { margin: 2px 40px 14px 0; font-family: var(--titulo); font-size: 26px; line-height: 1.1; }
+.archivos { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.archivos a {
+  display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 2px 12px;
+  padding: 11px 14px; border-radius: min(var(--radio), 12px);
+  background: var(--arte); color: var(--texto); text-decoration: none;
+  transition: transform .15s;
+}
+.archivos a:hover, .archivos a:focus-visible { transform: translateX(3px); outline: 2px solid var(--acento); outline-offset: 0; }
+.archivos .nombre { font-weight: 700; font-size: 15px; overflow-wrap: anywhere; }
+.archivos .que { grid-column: 1; font-size: 13px; color: var(--suave); }
+.archivos .peso { grid-column: 1; font-size: 12px; color: var(--suave); }
+.archivos svg { grid-column: 2; grid-row: 1 / span 3; width: 22px; height: 22px; fill: none; stroke: var(--acento); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.cerrar { position: absolute; top: 14px; right: 14px; width: 34px; height: 34px; display: grid; place-items: center; border: 0; border-radius: 50%; background: transparent; color: var(--texto); cursor: pointer; }
+.cerrar:hover, .cerrar:focus-visible { background: var(--arte); outline: none; }
+.cerrar svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; }
+.dialogo.t-cabina h2 { font-size: 34px; font-weight: 400; }
+.dialogo.t-cabina .archivos svg, .dialogo.t-cabina .archivos a:hover { stroke: #ff6b5e; outline-color: #ff6b5e; }
+.dialogo.t-luces .archivos svg { stroke: #4aa8ff; }
+
 /* Pie */
 .pie-sitio { max-width: 760px; margin: 0 auto; padding: 24px 20px 56px; text-align: center; color: var(--tinta-2); font-size: 14px; }
 .pie-sitio .gota { width: 16px; height: 20px; fill: var(--tinta); }
@@ -153,7 +185,7 @@ main { max-width: 1160px; margin: 0 auto; padding: 0 20px 40px; }
   .grilla, .grilla.web { grid-template-columns: 1fr 1fr; gap: 14px; }
   .grilla > li:last-child:nth-child(odd) { grid-column: 1 / -1; }
   .grilla > li:last-child:nth-child(odd) .art { aspect-ratio: 2 / 1; }
-  .card { border-radius: min(var(--radio), 12px); box-shadow: 0 4px 0 var(--sombra); }
+  .card { border-radius: min(var(--radio), 12px); }
   .cuerpo { padding: 10px 11px 12px; }
   .card h3 { font-size: 17px; }
   .t-cabina h3 { color: #fff; }
