@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>taller.ink</title>
+<meta name="description" content="Todo lo que sale del taller: apps web, programas para Windows y Android, y aparatos con luces.">
+<meta name="theme-color" content="#f6f3ec">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3C16 3 6 15 6 21a10 10 0 0 0 20 0C26 15 16 3 16 3z' fill='%231d1a16'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=IBM+Plex+Sans:wght@400;600&family=Inter:wght@400;600;700&family=Space+Mono:wght@400;700&family=VT323&family=JetBrains+Mono:wght@400;700&family=Courier+Prime:wght@400;700&family=Bebas+Neue&family=Chakra+Petch:wght@400;600&family=Manrope:wght@400;700;800&display=swap">
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+<header class="top">
+  <h1 class="marca" aria-label="taller.ink">
+    <span>taller</span><svg class="gota" viewBox="0 0 32 40" aria-hidden="true"><path d="M16 2S4 18 4 26a12 12 0 0 0 24 0C28 18 16 2 16 2z"/></svg><span>ink</span>
+  </h1>
+  <p class="bajada">Todo lo que sale del taller: apps que se abren en el navegador, programas para instalar y un par de aparatos con luces.</p>
+</header>
+
+<main>
+  <h2 class="grupo"><span>Se abren en el navegador</span></h2>
+  <ul class="grilla web" role="list">
+
+    <!-- Tiempos -->
+    <li class="card t-tiempos">
+      <div class="art" aria-hidden="true">
+        <svg viewBox="0 0 160 120">
+          <g class="fila"><rect x="18" y="30" width="30" height="7" rx="3.5" fill="#e3e1d9"/><rect x="18" y="44" width="22" height="7" rx="3.5" fill="#c8501a"/><rect x="18" y="58" width="26" height="7" rx="3.5" fill="#e3e1d9"/></g>
+          <rect x="88" y="16" width="14" height="9" rx="2.5" fill="#191917"/>
+          <rect x="120" y="30" width="9" height="6" rx="2" fill="#191917" transform="rotate(42 124 33)"/>
+          <circle cx="95" cy="64" r="36" fill="#fbfaf7" stroke="#191917" stroke-width="3.5"/>
+          <circle class="arco" cx="95" cy="64" r="27" fill="none" stroke="#c8501a" stroke-width="7" stroke-linecap="round" stroke-dasharray="118 170" transform="rotate(-90 95 64)"/>
+          <g class="aguja"><line x1="95" y1="64" x2="95" y2="40" stroke="#191917" stroke-width="3.5" stroke-linecap="round"/></g>
+          <circle cx="95" cy="64" r="4.5" fill="#191917"/>
+        </svg>
+      </div>
+      <div class="cuerpo">
+        <h3><a href="https://tiempos.taller.ink">Tiempos</a></h3>
+        <p>Un cronómetro por persona, hasta cien, y uno general que los suma.</p>
+        <div class="pie"><span class="tag">Web</span><span class="dom">tiempos.taller.ink</span></div>
+      </div>
+    </li>
+
+    <!-- Trazo -->
+    <li class="card t-trazo">
+      <div class="art" aria-hidden="true">
+        <svg viewBox="0 0 160 120">
+          <g transform="translate(18 10)"><rect width="9" height="9" rx="2" fill="#1b1b1b"/><rect x="13" width="9" height="9" rx="2" fill="#c42b1c"/><rect x="26" width="9" height="9" rx="2" fill="#f2b705"/><rect x="39" width="9" height="9" rx="2" fill="#005fb8" stroke="#fff" stroke-width="2"/></g>
+          <rect x="18" y="26" width="124" height="82" rx="2" fill="#fff" stroke="rgba(0,0,0,.12)"/>
+          <path class="trazo" d="M32 88C46 46 62 100 78 66S106 34 124 50" fill="none" stroke="#005fb8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+          <g transform="rotate(38 124 50)"><rect x="120" y="14" width="9" height="30" rx="1.5" fill="#1b1b1b"/><rect x="120" y="14" width="9" height="6" fill="#a9d3fb"/><path d="M120 44h9l-4.5 7z" fill="#e9d3b2"/><path d="M123.2 49h2.6l-1.3 2z" fill="#1b1b1b"/></g>
+          <rect x="132" y="98" width="8" height="8" fill="#fff" stroke="#005fb8" stroke-width="1.5"/>
+        </svg>
+      </div>
+      <div class="cuerpo">
+        <h3><a href="https://trazo.taller.ink">Trazo</a></h3>
+        <p>Editor de imágenes al estilo Paint, sin IA. Guarda en SVG y en ICO de varios tamaños.</p>
+        <div class="pie"><span class="tag">Web</span><a class="extra" href="https://github.com/MiInfcl/trazo/releases/tag/v1.1.1">Descargar .exe</a></div>
+      </div>
+    </li>
+
+    <!-- Butaca -->
+    <li class="card t-butaca">
+      <div class="art" aria-hidden="true">
+        <svg viewBox="0 0 160 120">
+          <path d="M26 14h108l-8 30H34z" fill="#8cbcff" opacity=".9"/>
+          <path d="M34 44h92l14 30H20z" fill="#3d8bfd" opacity=".16"/>
+          <defs><g id="asiento"><rect x="0" y="0" width="18" height="15" rx="5"/><rect x="-2" y="12" width="22" height="7" rx="3"/></g></defs>
+          <g fill="#173a7a">
+            <use href="#asiento" x="23" y="64"/><use href="#asiento" x="49" y="64"/><use href="#asiento" x="91" y="64"/><use href="#asiento" x="117" y="64"/>
+            <use href="#asiento" x="10" y="92"/><use href="#asiento" x="36" y="92"/><use href="#asiento" x="88" y="92"/><use href="#asiento" x="114" y="92"/><use href="#asiento" x="140" y="92"/>
+          </g>
+          <use class="mia" href="#asiento" x="62" y="92" fill="#3d8bfd"/>
+        </svg>
+      </div>
+      <div class="cuerpo">
+        <h3><a href="https://butaca.taller.ink">Butaca</a></h3>
+        <p>Películas y series en la nube, con carátulas y reproductor propio. Entra quien tiene cuenta.</p>
+        <div class="pie"><span class="tag">Web · con cuenta</span></div>
+      </div>
+    </li>
+  </ul>
+
+  <h2 class="grupo"><span>Se instalan o corren en tu equipo</span></h2>
+  <ul class="grilla" role="list">
+
+    <!-- Cat Printer -->
+    <li class="card t-gato">
+      <div class="art" aria-hidden="true">
+        <svg viewBox="0 0 160 120">
+          <g class="papel"><path d="M58 70V14l4 -4 4 4 4-4 4 4 4-4 4 4 4-4 4 4 4-4 4 4 4-4v56z" fill="#fffdf6" stroke="#2a2723" stroke-width="2"/>
+            <g stroke="#2a2723" stroke-width="2.5" stroke-linecap="round"><line x1="66" y1="24" x2="94" y2="24"/><line x1="66" y1="32" x2="86" y2="32"/><line x1="66" y1="40" x2="92" y2="40"/></g>
+            <path d="M72 58l3-8 4 5 4-5 3 8z" fill="#2a2723"/></g>
+          <path d="M40 66l8-16 12 14zM120 66l-8-16-12 14z" fill="#2a2723"/>
+          <rect x="34" y="62" width="92" height="48" rx="14" fill="#f2ede1" stroke="#2a2723" stroke-width="3"/>
+          <rect x="52" y="62" width="56" height="5" rx="2" fill="#2a2723"/>
+          <circle cx="66" cy="84" r="3.5" fill="#2a2723"/><circle cx="94" cy="84" r="3.5" fill="#2a2723"/>
+          <path d="M77 92q3 3 6 0" fill="none" stroke="#2a2723" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="cuerpo">
+        <h3><span>Cat Printer</span></h3>
+        <p>Imprime en las impresoras térmicas «gato» por Bluetooth, y un puente que las deja como impresoras normales de Windows.</p>
+        <div class="pie"><span class="tag">Windows</span><span class="dom">uso propio</span></div>
+      </div>
+    </li>
+
+    <!-- Cabina de fotos -->
+    <li class="card t-cabina">
+      <div class="art" aria-hidden="true">
+        <svg viewBox="0 0 160 120">
+          <g transform="rotate(-9 62 60)"><rect x="40" y="6" width="40" height="112" fill="#eae6dc"/></g>
+          <g class="tira">
+            <rect x="76" y="2" width="44" height="116" fill="#fbf9f4"/>
+            <g fill="#2b2b2b"><rect x="81" y="7" width="34" height="29"/><rect x="81" y="40" width="34" height="29"/><rect x="81" y="73" width="34" height="29"/></g>
+            <g fill="#bdb8ad"><circle cx="98" cy="18" r="6"/><path d="M87 36q11-14 22 0z"/><circle cx="95" cy="51" r="6"/><path d="M84 69q11-14 22 0z"/><circle cx="101" cy="84" r="6"/><path d="M90 102q11-14 22 0z"/></g>
+            <rect x="81" y="106" width="20" height="3" fill="#e5322d"/>
+          </g>
+        </svg>
+      </div>
+      <div class="cuerpo">
+        <h3><span>Cabina de fotos</span></h3>
+        <p>Tres fotos, un marco y un texto, impresos en tira: una copia por impresora. Para PC y Android.</p>
+        <div class="pie"><span class="tag">Windows · Android</span><span class="dom">uso propio</span></div>
+      </div>
+    </li>
+
+    <!-- Luces aRGB -->
+    <li class="card t-luces">
+      <div class="art" aria-hidden="true">
+        <svg viewBox="0 0 160 120">
+          <defs><filter id="brillo" x="-1" y="-1" width="3" height="3"><feGaussianBlur stdDeviation="5"/></filter></defs>
+          <rect x="8" y="50" width="144" height="20" rx="4" fill="#232323" stroke="#2f2f2f"/>
+          <g class="leds"></g>
+          <path d="M8 60H0M152 60h8" stroke="#3a3a3a" stroke-width="3"/>
+        </svg>
+      </div>
+      <div class="cuerpo">
+        <h3><span>Luces aRGB</span></h3>
+        <p>Diez LED de colores en un ESP32, manejados desde el teléfono por Bluetooth, WiFi o un control infrarrojo.</p>
+        <div class="pie"><span class="tag">Android · ESP32</span><span class="dom">uso propio</span></div>
+      </div>
+    </li>
+
+    <!-- Captura de streams -->
+    <li class="card t-captura">
+      <div class="art" aria-hidden="true">
+        <svg viewBox="0 0 160 120">
+          <rect x="20" y="12" width="96" height="96" rx="12" fill="#fff" stroke="#0e2a2e" stroke-width="3"/>
+          <rect x="30" y="22" width="76" height="10" rx="5" fill="#e3f6f8"/>
+          <rect x="30" y="40" width="76" height="44" rx="4" fill="#0e2a2e"/>
+          <path d="M62 52v20l17-10z" fill="#b60808"/>
+          <rect x="30" y="92" width="50" height="5" rx="2.5" fill="#cfe6e9"/>
+          <path class="cadena" d="M106 62c14 0 18 6 24 14" fill="none" stroke="#0e2a2e" stroke-width="2.5" stroke-dasharray="4 5" stroke-linecap="round"/>
+          <g transform="translate(124 74)"><rect width="24" height="30" rx="4" fill="#fff" stroke="#0e2a2e" stroke-width="2.5"/><rect x="7" y="-3" width="10" height="6" rx="2" fill="#0e2a2e"/><path d="M6 13h12M6 19h8" stroke="#b60808" stroke-width="2.5" stroke-linecap="round"/></g>
+        </svg>
+      </div>
+      <div class="cuerpo">
+        <h3><span>Captura de streams</span></h3>
+        <p>Un navegador para Android que encuentra los videos de una página y copia sus enlaces.</p>
+        <div class="pie"><span class="tag">Android</span><span class="dom">uso propio</span></div>
+      </div>
+    </li>
+
+    <!-- QR editables -->
+    <li class="card t-qr">
+      <div class="art" aria-hidden="true">
+        <svg viewBox="0 0 160 120">
+          <path class="modulos" fill="#111"/>
+          <g fill="none" stroke="#111" stroke-width="4.6"><rect x="34" y="14.3" width="27.6" height="27.6"/><rect x="93.8" y="14.3" width="27.6" height="27.6"/><rect x="34" y="74.1" width="27.6" height="27.6"/></g>
+          <g fill="#111"><rect x="40.9" y="21.2" width="13.8" height="13.8"/><rect x="100.7" y="21.2" width="13.8" height="13.8"/><rect x="40.9" y="81" width="13.8" height="13.8"/></g>
+          <g transform="rotate(40 122 86)"><rect x="116" y="58" width="11" height="36" rx="2" fill="#0d6efd" stroke="#fff" stroke-width="2"/><path d="M116 94h11l-5.5 9z" fill="#f3e2c4" stroke="#fff" stroke-width="2"/></g>
+        </svg>
+      </div>
+      <div class="cuerpo">
+        <h3><span>QR editables</span></h3>
+        <p>Códigos QR que se imprimen una vez y después apuntan a donde quieras. Web y ejecutable portable.</p>
+        <div class="pie"><span class="tag">Web local · Windows</span><span class="dom">uso propio</span></div>
+      </div>
+    </li>
+
+    <!-- ByteFix -->
+    <li class="card t-bytefix">
+      <div class="art" aria-hidden="true">
+        <svg viewBox="0 0 160 120">
+          <rect x="22" y="14" width="116" height="92" fill="#c0c0c0"/>
+          <path d="M22 106V14h116" fill="none" stroke="#fff" stroke-width="2"/><path d="M22 106h116V14" fill="none" stroke="#404040" stroke-width="2"/>
+          <rect x="26" y="18" width="108" height="14" fill="#000080"/>
+          <text x="31" y="29" font-family="VT323, monospace" font-size="13" fill="#fff">ByteFix</text>
+          <rect x="122" y="21" width="9" height="8" fill="#c0c0c0" stroke="#404040"/>
+          <rect x="30" y="38" width="100" height="62" fill="#fff" stroke="#808080"/>
+          <g class="llave"><path d="M70 69h28" stroke="#404040" stroke-width="8" stroke-linecap="round"/><circle cx="66" cy="69" r="11" fill="#808080"/><rect x="60" y="64" width="9" height="10" fill="#fff"/></g>
+          <rect x="36" y="88" width="30" height="6" fill="#aa0000"/>
+        </svg>
+      </div>
+      <div class="cuerpo">
+        <h3><span>ByteFix</span></h3>
+        <p>Servicio técnico en la web: tickets, presupuestos y cuentas para clientes, técnicos y administración.</p>
+        <div class="pie"><span class="tag">Web local</span><span class="dom">uso propio</span></div>
+      </div>
+    </li>
+
+    <!-- taskq -->
+    <li class="card t-taskq">
+      <div class="art" aria-hidden="true">
+        <svg viewBox="0 0 160 120" font-family="'JetBrains Mono', monospace" font-size="10">
+          <text x="14" y="24" fill="#9be37a">$ taskq add backup</text>
+          <g fill="#5e6b58"><rect x="14" y="38" width="132" height="14" rx="2"/></g>
+          <rect x="14" y="38" width="96" height="14" rx="2" fill="#9be37a"/>
+          <text x="18" y="48" fill="#11140f" font-weight="700">1 corriendo</text>
+          <g fill="#c9d1c3"><text x="14" y="70">2 en cola</text><text x="14" y="86">3 en cola</text></g>
+          <text x="14" y="104" fill="#9be37a">$ <tspan class="cursor">_</tspan></text>
+        </svg>
+      </div>
+      <div class="cuerpo">
+        <h3><span>taskq</span></h3>
+        <p>Cola de tareas para la terminal, en Python puro y sin dependencias.</p>
+        <div class="pie"><span class="tag">Terminal</span><span class="dom">uso propio</span></div>
+      </div>
+    </li>
+  </ul>
+</main>
+
+<footer class="pie-sitio">
+  <svg class="gota" viewBox="0 0 32 40" aria-hidden="true"><path d="M16 2S4 18 4 26a12 12 0 0 0 24 0C28 18 16 2 16 2z"/></svg>
+  <p>Hecho en el taller. Las tarjetas sin enlace son herramientas de uso propio, sin descarga pública.</p>
+</footer>
+
+<script>
+// Luces: diez LED con su brillo
+(function () {
+  var g = document.querySelector('.t-luces .leds');
+  if (!g) return;
+  var cols = ['#ff3b3b','#ff8a1f','#ffd21f','#7be03a','#18d6a0','#1ec8ff','#1E90FF','#6a5cff','#c04dff','#ff3fa4'];
+  var ns = 'http://www.w3.org/2000/svg', html = '';
+  cols.forEach(function (c, i) {
+    var x = 17 + i * 14;
+    html += '<g class="led" style="--i:' + i + '"><circle cx="' + x + '" cy="60" r="7" fill="' + c + '" filter="url(#brillo)" opacity=".85"/>' +
+            '<circle cx="' + x + '" cy="60" r="4.5" fill="' + c + '"/><circle cx="' + (x - 1.4) + '" cy="58.6" r="1.4" fill="#fff" opacity=".8"/></g>';
+  });
+  g.innerHTML = html;
+})();
+// QR: módulos fijos (semilla), sin tocar las tres esquinas
+(function () {
+  var p = document.querySelector('.t-qr .modulos');
+  if (!p) return;
+  var s = 7, N = 21, c = 4.6, ox = 34, oy = 14.3, d = '';
+  function r() { s = (s * 16807) % 2147483647; return s / 2147483647; }
+  function esquina(x, y) { return (x < 8 && y < 8) || (x > N - 9 && y < 8) || (x < 8 && y > N - 9); }
+  for (var y = 0; y < N; y++) for (var x = 0; x < N; x++) {
+    if (esquina(x, y) || r() > 0.5) continue;
+    d += 'M' + (ox + x * c - 2.3).toFixed(1) + ' ' + (oy + y * c - 2.3).toFixed(1) + 'h' + c + 'v' + c + 'h-' + c + 'z';
+  }
+  p.setAttribute('d', d);
+})();
+</script>
+</body>
+</html>
