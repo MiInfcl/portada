@@ -64,30 +64,24 @@ main {
 .suelo { stroke-dasharray: 1; stroke-dashoffset: 1; animation: dibujar 1.3s var(--salida) .1s forwards; }
 @keyframes dibujar { to { stroke-dashoffset: 0; } }
 
-/* La gota se asoma al hoyo y se le escapa tinta */
-.gota-personaje { transform-box: view-box; transform-origin: 588px 198px; animation: asomarse 5.2s ease-in-out 1.2s infinite; }
+/* La gota se asoma al hoyo: las patas quedan fijas, el cuerpo se inclina, mira, vuelve y duda */
+.cuerpo-gota { transform-box: view-box; transform-origin: 575px 156px; animation: asomarse 6s cubic-bezier(.45, 0, .2, 1) 1.4s infinite; }
 @keyframes asomarse {
-  0%, 100% { transform: rotate(0deg); }
-  30%, 62% { transform: rotate(-7deg); }
+  0%, 18% { transform: rotate(0deg); }
+  30%, 52% { transform: rotate(-11deg); }
+  64%, 100% { transform: rotate(0deg); }
 }
-.chorro { opacity: 0; animation: caer 5.2s ease-in 1.2s infinite; }
-@keyframes caer {
-  0%, 36% { opacity: 0; transform: translate(0, 0) scale(1); }
-  40% { opacity: 1; transform: translate(0, 0) scale(1); }
-  56% { opacity: 1; transform: translate(-3px, 26px) scale(.85, 1.15); }
-  60%, 100% { opacity: 0; transform: translate(-3px, 30px) scale(.6); }
+.ojo { transform-box: fill-box; transform-origin: center; animation: parpadeo 6s linear 1.4s infinite; }
+@keyframes parpadeo {
+  0%, 40%, 44%, 100% { transform: scaleY(1); }
+  42% { transform: scaleY(.1); }
 }
-.ola { transform-box: fill-box; transform-origin: center; opacity: 0; animation: ola 5.2s ease-out 1.2s infinite; }
-@keyframes ola {
-  0%, 57% { opacity: 0; transform: scale(.3); }
-  60% { opacity: 1; transform: scale(.6); }
-  78%, 100% { opacity: 0; transform: scale(1.25); }
-}
-.duda { animation: duda 5.2s var(--salida) 1.2s infinite; transform-box: fill-box; transform-origin: 50% 100%; }
+.duda { opacity: 0; transform-box: fill-box; transform-origin: 30% 100%; animation: duda 6s var(--salida) 1.4s infinite; }
 @keyframes duda {
-  0%, 62% { transform: translateY(0); }
-  66% { transform: translateY(-8px) rotate(-6deg); }
-  72%, 100% { transform: translateY(0); }
+  0%, 62% { opacity: 0; transform: translateY(6px) scale(.6) rotate(0); }
+  68% { opacity: 1; transform: translateY(-4px) scale(1.08) rotate(-8deg); }
+  74%, 92% { opacity: 1; transform: translateY(0) scale(1) rotate(0); }
+  100% { opacity: 0; transform: translateY(0) scale(1); }
 }
 
 h1 {
@@ -126,7 +120,8 @@ h1 {
 
 @media (prefers-reduced-motion: reduce) {
   .suelo { animation: none; stroke-dashoffset: 0; }
-  .gota-personaje, .chorro, .ola, .duda { animation: none; }
+  .cuerpo-gota, .ojo { animation: none; }
+  .duda { animation: none; opacity: 1; }
 }
 </style>
 </head>
@@ -146,17 +141,17 @@ h1 {
 
     <!-- el hoyo de tinta -->
     <ellipse cx="466" cy="201" rx="70" ry="13" fill="#1d1a16"/>
-    <ellipse class="ola" cx="500" cy="200" rx="26" ry="5" fill="none" stroke="#f6f3ec" stroke-width="2"/>
 
     <!-- la gota que busca la página -->
     <g class="gota-personaje">
       <path class="trazo" d="M566 160l-2 38M584 150l8 48"/>
-      <g transform="translate(540 136) rotate(52)">
-        <path d="M0-80S-40-28-40 0a40 40 0 0 0 80 0C40-28 0-80 0-80z" fill="#f6f3ec" stroke="#1d1a16" stroke-width="4" stroke-linejoin="round"/>
+      <g class="cuerpo-gota">
+        <g transform="translate(540 136) rotate(52)">
+          <path d="M0-80S-40-28-40 0a40 40 0 0 0 80 0C40-28 0-80 0-80z" fill="#f6f3ec" stroke="#1d1a16" stroke-width="4" stroke-linejoin="round"/>
+        </g>
+        <circle class="ojo" cx="520" cy="158" r="4.5" fill="#1d1a16"/>
+        <ellipse cx="534" cy="171" rx="4" ry="5" fill="none" stroke="#1d1a16" stroke-width="3"/>
       </g>
-      <circle cx="520" cy="158" r="4.5" fill="#1d1a16"/>
-      <ellipse cx="534" cy="171" rx="4" ry="5" fill="none" stroke="#1d1a16" stroke-width="3"/>
-      <path class="chorro" d="M512 164s-6 8-6 11a6 6 0 0 0 12 0c0-3-6-11-6-11z" fill="#1d1a16"/>
     </g>
     <text class="duda" x="602" y="66">?!</text>
   </svg>
