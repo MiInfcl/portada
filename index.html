@@ -20,7 +20,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,800&family=IBM+Plex+Sans:wght@400;600&family=Inter:wght@400;600;700&family=Space+Mono:wght@400;700&family=VT323&family=JetBrains+Mono:wght@400;700&family=Courier+Prime:wght@400;700&family=Bebas+Neue&family=Archivo+Narrow:wght@400;600&family=Chakra+Petch:wght@400;600&family=Manrope:wght@400;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,800&family=IBM+Plex+Sans:wght@400;600&family=Inter:wght@400;600;700&family=Space+Mono:wght@400;700&family=VT323&family=JetBrains+Mono:wght@400;700&family=Courier+Prime:wght@400;700&family=Bebas+Neue&family=Barlow:wght@400;700&family=Archivo+Narrow:wght@400;600&family=Chakra+Petch:wght@400;600&family=Manrope:wght@400;700;800&display=swap">
 <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
@@ -74,24 +74,45 @@
       </div>
     </li>
 
-    <!-- Butaca -->
-    <li class="card t-butaca">
+    <!-- Pendientes -->
+    <li class="card t-pendientes">
       <div class="art" aria-hidden="true">
         <svg viewBox="0 0 160 120">
-          <path d="M26 14h108l-8 30H34z" fill="#8cbcff" opacity=".9"/>
-          <path d="M34 44h92l14 30H20z" fill="#3d8bfd" opacity=".16"/>
-          <defs><g id="asiento"><rect x="0" y="0" width="18" height="15" rx="5"/><rect x="-2" y="12" width="22" height="7" rx="3"/></g></defs>
-          <g fill="#173a7a">
-            <use href="#asiento" x="23" y="64"/><use href="#asiento" x="49" y="64"/><use href="#asiento" x="91" y="64"/><use href="#asiento" x="117" y="64"/>
-            <use href="#asiento" x="10" y="92"/><use href="#asiento" x="36" y="92"/><use href="#asiento" x="88" y="92"/><use href="#asiento" x="114" y="92"/><use href="#asiento" x="140" y="92"/>
+          <defs><pattern id="perforado" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="6" cy="6" r="1.8" fill="#24483a"/></pattern></defs>
+          <rect width="160" height="120" fill="url(#perforado)"/>
+          <g class="filas">
+            <rect x="16" y="22" width="78" height="18" rx="4" fill="#f8f8f3"/><rect x="22" y="27" width="8" height="8" rx="2" fill="#2f5a48"/><rect x="36" y="29" width="44" height="4" rx="2" fill="#c9d0c6"/>
+            <rect x="16" y="46" width="78" height="18" rx="4" fill="#f8f8f3"/><rect x="22" y="51" width="8" height="8" rx="2" fill="none" stroke="#17201b" stroke-width="1.6"/><rect x="36" y="53" width="34" height="4" rx="2" fill="#17201b"/>
+            <rect x="16" y="70" width="78" height="18" rx="4" fill="#f8f8f3"/><rect x="22" y="75" width="8" height="8" rx="2" fill="none" stroke="#b3301c" stroke-width="1.6"/><rect x="36" y="77" width="40" height="4" rx="2" fill="#b3301c"/>
           </g>
-          <use class="mia" href="#asiento" x="62" y="92" fill="#3d8bfd"/>
+          <rect class="ranura" x="106" y="38" width="38" height="38" rx="10" fill="none" stroke="#f2c230" stroke-width="3" stroke-dasharray="6 5"/>
+          <rect class="relleno" x="106" y="38" width="38" height="38" rx="10" fill="#f2c230"/>
+          <path class="check" d="M115 58l6.5 6.5L135 51" fill="none" stroke="#17201b" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" pathLength="1"/>
         </svg>
       </div>
       <div class="cuerpo">
-        <h3><a href="https://butaca.taller.ink">Butaca</a></h3>
-        <p>Películas y series en la nube, con carátulas y reproductor propio. Entra quien tiene cuenta.</p>
-        <div class="pie"><span class="tag">Web · con cuenta</span></div>
+        <h3><a href="https://pendientes.taller.ink">Pendientes</a></h3>
+        <p>Tu lista de tareas. Sin cuenta: se guarda en tu navegador.</p>
+        <div class="pie"><span class="tag">Web</span></div>
+      </div>
+    </li>
+
+    <!-- Reproductor -->
+    <li class="card t-reproductor">
+      <div class="art" aria-hidden="true">
+        <svg viewBox="0 0 160 120">
+          <rect x="14" y="14" width="132" height="74" rx="6" fill="#0e1628" stroke="rgba(255,255,255,.1)"/>
+          <path d="M70 37v28l24-14z" fill="#e9eef7"/>
+          <rect x="44" y="74" width="72" height="5" rx="2.5" fill="#e9eef7" opacity=".85"/>
+          <rect x="14" y="98" width="132" height="5" rx="2.5" fill="#1d2a44"/>
+          <rect class="avance" x="14" y="98" width="132" height="5" rx="2.5" fill="#2563eb"/>
+          <circle class="cabezal" cx="62" cy="100.5" r="6" fill="#e9eef7"/>
+        </svg>
+      </div>
+      <div class="cuerpo">
+        <h3><a href="https://butaca.taller.ink/reproductor.html">Reproductor</a></h3>
+        <p>Abre cualquier video con audios y subtítulos aparte, y zoom con pellizco.</p>
+        <div class="pie"><span class="tag">Web</span></div>
       </div>
     </li>
 

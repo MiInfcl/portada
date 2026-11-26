@@ -100,11 +100,21 @@ main { max-width: 1160px; margin: 0 auto; padding: 0 20px 40px; }
 .t-trazo:hover .trazo { animation: dibujar 1s ease-out; }
 @keyframes dibujar { from { stroke-dashoffset: 160; } }
 
-/* Butaca: azul noche de sala, Inter */
-.t-butaca { --fondo: #0b1a3a; --arte: #06122b; --texto: #e9eef7; --suave: #93a4c2; --acento: #3d8bfd; --sobre-acento: #06122b; --letra: "Inter", sans-serif; }
-.t-butaca h3 { font-weight: 700; letter-spacing: -.01em; }
-.t-butaca .mia { transition: fill .3s; }
-.t-butaca:hover .mia { fill: #8cbcff; }
+/* Pendientes: tablero perforado verde y amarillo de seguridad, Barlow */
+.t-pendientes { --fondo: #e7ebe4; --arte: #2f5a48; --texto: #17201b; --suave: #4b544d; --acento: #2f5a48; --sobre-acento: #f1efe4; --letra: "Barlow", sans-serif; --radio: 12px; }
+.t-pendientes h3 { font-weight: 700; }
+.t-pendientes .relleno { transform-box: fill-box; transform-origin: center; transform: scale(.4); opacity: 0; transition: transform .35s cubic-bezier(.3, 1.5, .5, 1), opacity .2s; }
+.t-pendientes .check { stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset .3s ease-out .2s; }
+.t-pendientes:hover .relleno { transform: scale(1); opacity: 1; }
+.t-pendientes:hover .check { stroke-dashoffset: 0; }
+
+/* Reproductor: la pantalla oscura de Butaca, azul de reproducción, Inter */
+.t-reproductor { --fondo: #0b1222; --arte: #03070f; --texto: #e9eef7; --suave: #93a4c2; --acento: #2563eb; --sobre-acento: #fff; --letra: "Inter", sans-serif; --radio: 12px; }
+.t-reproductor h3 { font-weight: 700; letter-spacing: -.01em; }
+.t-reproductor .avance { transform-box: view-box; transform-origin: 14px 0; transform: scaleX(.364); transition: transform 1.4s cubic-bezier(.2, .8, .2, 1); }
+.t-reproductor .cabezal { transition: transform 1.4s cubic-bezier(.2, .8, .2, 1); }
+.t-reproductor:hover .avance { transform: scaleX(.85); }
+.t-reproductor:hover .cabezal { transform: translateX(64px); }
 
 /* Cat Printer: papel térmico y máquina de escribir */
 .t-gato { --fondo: #fffdf6; --arte: #ebe5d6; --texto: #2a2723; --suave: #5b544a; --acento: #2a2723; --letra: "Courier Prime", monospace; }
