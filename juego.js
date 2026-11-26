@@ -26,9 +26,12 @@
   var estado = 'espera'; // espera, juego, fin
   var gotas, manchas, salpicones, tintero, puntos, vidas, reloj, proxima, ultimo, raf;
   var teclas = { izq: false, der: false };
+  var apurado = false, textos = []; // apurado: con el clic o la barra apretados caen más rápido y valen el doble
+  var elDoble = dlg.querySelector('.doble');
+  function apurar(si) { apurado = si && estado === 'juego'; elDoble.hidden = !apurado; }
 
   function reiniciar() {
-    gotas = []; manchas = []; salpicones = [];
+    gotas = []; manchas = []; salpicones = []; textos = [];
     tintero = { x: W / 2, objetivo: W / 2, nivel: 0, golpe: 0 };
     puntos = 0; vidas = 3; reloj = 0; proxima = 600;
     elPuntos.textContent = '0';
@@ -95,6 +98,11 @@
     manchas.forEach(dibujarMancha);
     gotas.forEach(dibujarGota);
     salpicones.forEach(dibujarSalpicon);
+    textos.forEach(function (t) {
+      ctx.globalAlpha = Math.max(0, t.vida); ctx.fillStyle = TINTA;
+      ctx.font = '800 ' + t.tam + 'px "Bricolage Grotesque", system-ui, sans-serif'; ctx.textAlign = 'center';
+      ctx.fillText(t.txt, t.x, t.y); ctx.globalAlpha = 1;
+    });
     dibujarTintero();
   }
 
@@ -126,7 +134,8 @@
 
   function avanzar(dt) {
     reloj += dt;
-    if ((proxima -= dt * 1000) <= 0) soltar();
+    var f = apurado ? 1.9 : 1;
+    if ((proxima -= dt * 1000 * f) <= 0) soltar();
 
     if (teclas.izq) tintero.objetivo -= 420 * dt;
     if (teclas.der) tintero.objetivo += 420 * dt;
@@ -137,11 +146,13 @@
     for (var i = gotas.length - 1; i >= 0; i--) {
       var g = gotas[i];
       g.t = Math.min(1, g.t + dt * 5);
-      g.y += g.v * dt;
+      g.y += g.v * dt * f;
       var boca = SUELO - 54;
-      if (g.y >= boca && g.y - g.v * dt < boca + 6 && Math.abs(g.x - tintero.x) < 22) {
+      if (g.y >= boca && g.y - g.v * dt * f < boca + 6 && Math.abs(g.x - tintero.x) < 22) {
         gotas.splice(i, 1);
-        puntos++; elPuntos.textContent = puntos;
+        var vale = apurado ? 2 : 1;
+        puntos += vale; elPuntos.textContent = puntos;
+        textos.push({ x: tintero.x, y: boca - 12, txt: '+' + vale, tam: apurado ? 22 : 16, vida: 1 });
         tintero.nivel = Math.min(1, tintero.nivel + .06); tintero.golpe = 1;
         salpicar(g.x, boca, 4, 90);
       } else if (g.y >= SUELO) {
@@ -150,6 +161,10 @@
         manchar(g.x);
         if (estado !== 'juego') return;
       }
+    }
+    for (var k = textos.length - 1; k >= 0; k--) {
+      textos[k].y -= 40 * dt; textos[k].vida -= dt * 1.6;
+      if (textos[k].vida <= 0) textos.splice(k, 1);
     }
     for (var j = salpicones.length - 1; j >= 0; j--) {
       var p = salpicones[j];
@@ -177,7 +192,7 @@
   }
 
   function terminar() {
-    estado = 'fin';
+    estado = 'fin'; apurar(false);
     var nuevo = puntos > record;
     if (nuevo) {
       record = puntos; elRecord.textContent = record;
@@ -196,17 +211,20 @@
     tintero.objetivo = (e.clientX - r.left) / r.width * W;
   }
   lienzo.addEventListener('pointermove', mover);
-  lienzo.addEventListener('pointerdown', function (e) { mover(e); lienzo.setPointerCapture(e.pointerId); });
+  lienzo.addEventListener('pointerdown', function (e) { mover(e); lienzo.setPointerCapture(e.pointerId); apurar(true); });
+  ['pointerup', 'pointercancel', 'lostpointercapture'].forEach(function (n) { lienzo.addEventListener(n, function () { apurar(false); }); });
 
   dlg.addEventListener('keydown', function (e) {
     var k = e.key;
     if (k === 'ArrowLeft' || k === 'a' || k === 'A') { teclas.izq = true; e.preventDefault(); }
     if (k === 'ArrowRight' || k === 'd' || k === 'D') { teclas.der = true; e.preventDefault(); }
+    if (k === ' ' && estado === 'juego') { apurar(true); e.preventDefault(); }
   });
   dlg.addEventListener('keyup', function (e) {
     var k = e.key;
     if (k === 'ArrowLeft' || k === 'a' || k === 'A') teclas.izq = false;
     if (k === 'ArrowRight' || k === 'd' || k === 'D') teclas.der = false;
+    if (k === ' ') apurar(false);
   });
 
   avisoBoton.addEventListener('click', empezar);
@@ -217,7 +235,7 @@
       ajustar(); reiniciar();
       estado = 'espera';
       avisoTitulo.textContent = 'Que no se manche la hoja';
-      avisoTexto.textContent = 'Mueve el tintero y atrapa las gotas. Cada una que se escapa mancha la hoja; a la tercera se acaba.';
+      avisoTexto.textContent = 'Mueve el tintero y atrapa las gotas. Mantén apretado para que caigan más rápido y valgan el doble. A la tercera mancha se acaba.';
       avisoBoton.textContent = 'Empezar';
       aviso.hidden = false;
       pintar();
@@ -228,7 +246,7 @@
 
   dlg.addEventListener('close', function () {
     estado = 'espera'; cancelAnimationFrame(raf);
-    teclas.izq = teclas.der = false;
+    teclas.izq = teclas.der = false; apurar(false);
     boton.classList.remove('cae');
   });
   dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });

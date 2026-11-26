@@ -241,6 +241,8 @@ main { max-width: 1160px; margin: 0 auto; padding: 0 20px 40px; }
 .marcador h2 { margin: 0 auto 0 0; font-size: 26px; font-weight: 800; letter-spacing: -0.04em; line-height: 1; width: 100%; }
 .marcador p { margin: 0; font-size: 14px; color: var(--tinta-2); }
 .marcador b { color: var(--tinta); font-size: 18px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.doble { display: inline-block; margin-left: 2px; padding: 1px 6px; border-radius: 3px; background: var(--tinta); color: var(--papel); font-weight: 800; font-size: 12px; transform: rotate(-4deg); }
+.doble[hidden] { display: none; }
 .vidas { display: flex; gap: 5px; margin-left: auto !important; align-self: center; }
 .vidas svg { width: 12px; height: 15px; fill: var(--tinta); transition: opacity .2s, transform .3s; }
 .vidas svg.gastada { opacity: .18; transform: scale(.8); }
