@@ -26,7 +26,14 @@
 <body>
 
 <header class="top">
-  <a class="entrar" href="/cuenta/">Entrar</a>
+  <div class="acciones">
+    <button class="ajustes-boton" type="button" popovertarget="ajustes" aria-label="Ajustes"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button>
+    <a class="entrar" href="/cuenta/">Entrar</a>
+  </div>
+  <div class="ajustes" id="ajustes" popover>
+    <h2>Ajustes</h2>
+    <label class="interruptor"><span>Abrir las apps en una pestaña nueva</span><input type="checkbox" role="switch" id="pestana-nueva" checked></label>
+  </div>
   <h1 class="marca" aria-label="taller.ink">
     <span>taller</span><button class="gota-boton" type="button" aria-label="Jugar con la gota" aria-haspopup="dialog"><svg class="gota" viewBox="0 0 32 40" aria-hidden="true"><path d="M16 2S4 18 4 26a12 12 0 0 0 24 0C28 18 16 2 16 2z"/></svg></button><span>ink</span>
   </h1>
@@ -259,6 +266,40 @@
 <script src="juego.js" defer></script>
 
 <script>
+// Grilla pareja: elige cuántas columnas usar para que las filas queden parecidas (5 cards = 3 + 2, no 4 + 1)
+(function () {
+  var grillas = document.querySelectorAll('.grilla');
+  function repartir(g) {
+    var w = g.clientWidth, gap = parseFloat(getComputedStyle(g).columnGap) || 0;
+    var max = window.innerWidth <= 600 ? 2 : Math.max(1, Math.min(4, Math.floor((w + gap) / (230 + gap))));
+    var n = g.children.length, filas = Math.ceil(n / max), cols = Math.ceil(n / filas);
+    var base = (w - (cols - 1) * gap) / cols;
+    g.style.setProperty('--cols', cols);
+    g.style.setProperty('--art-h', Math.round(Math.min(base * .75, 230)) + 'px'); // tope: el dibujo no crece sin fin en cards anchas
+  }
+  grillas.forEach(repartir);
+  if (window.ResizeObserver) {
+    var ro = new ResizeObserver(function (e) { e.forEach(function (x) { repartir(x.target); }); });
+    grillas.forEach(function (g) { ro.observe(g); });
+  } else window.addEventListener('resize', function () { grillas.forEach(repartir); });
+})();
+// Abrir las apps en pestaña nueva (se puede apagar en Ajustes; queda guardado en este navegador)
+(function () {
+  var caja = document.getElementById('pestana-nueva');
+  var enlaces = document.querySelectorAll('.card:not(.descarga) h3 a[href^="http"]');
+  var si = true;
+  try { si = localStorage.getItem('taller-pestana-nueva') !== 'no'; } catch (e) {}
+  function aplicar() {
+    enlaces.forEach(function (a) {
+      if (si) { a.target = '_blank'; a.rel = 'noopener'; } else { a.removeAttribute('target'); a.removeAttribute('rel'); }
+    });
+  }
+  caja.checked = si; aplicar();
+  caja.addEventListener('change', function () {
+    si = caja.checked; aplicar();
+    try { localStorage.setItem('taller-pestana-nueva', si ? 'si' : 'no'); } catch (e) {}
+  });
+})();
 // Descargas: la card abre un cuadro con su mismo tema para elegir el archivo
 (function () {
   var dlg = document.getElementById('dialogo');
