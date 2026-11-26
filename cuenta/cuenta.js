@@ -2,8 +2,9 @@
 // Esquema: users/{uid} (perfil) y users/{uid}/<app>/{id} para cada app.
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js';
 import {
-  getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signInWithRedirect, signOut,
+  getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signInWithRedirect,
 } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js';
+import { conectarSesion, salir } from './sesion.js';
 import {
   getFirestore, collection, doc, getDoc, setDoc, getCountFromServer, serverTimestamp,
 } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
@@ -22,6 +23,7 @@ const app = initializeApp(window.FIREBASE_CONFIG);
 const auth = getAuth(app);
 auth.languageCode = 'es';
 const db = getFirestore(app);
+conectarSesion(auth);
 
 function mostrarError(texto) {
   $('error').textContent = texto;
@@ -49,7 +51,7 @@ $('entrar').addEventListener('click', async () => {
   }
 });
 
-$('salir').addEventListener('click', () => signOut(auth));
+$('salir').addEventListener('click', () => salir(auth));
 
 async function contar(uid, nombre) {
   const { otras, una, varias, doc: unico, campo } = APPS[nombre];
