@@ -9,7 +9,7 @@
   var ctx = lienzo.getContext('2d');
   var elPuntos = dlg.querySelector('.puntos b');
   var elRecord = dlg.querySelector('.record b');
-  var elManchas = dlg.querySelectorAll('.vidas span');
+  var elManchas = dlg.querySelectorAll('.vidas svg');
   var aviso = dlg.querySelector('.aviso');
   var avisoTitulo = aviso.querySelector('h3');
   var avisoTexto = aviso.querySelector('p');

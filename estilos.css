@@ -242,8 +242,8 @@ main { max-width: 1160px; margin: 0 auto; padding: 0 20px 40px; }
 .marcador p { margin: 0; font-size: 14px; color: var(--tinta-2); }
 .marcador b { color: var(--tinta); font-size: 18px; font-weight: 800; font-variant-numeric: tabular-nums; }
 .vidas { display: flex; gap: 5px; margin-left: auto !important; align-self: center; }
-.vidas span { width: 11px; height: 14px; background: var(--tinta); clip-path: path("M5.5 0S0 6.3 0 9.2a5.5 5.5 0 0 0 11 0C11 6.3 5.5 0 5.5 0z"); transition: opacity .2s, transform .3s; }
-.vidas span.gastada { opacity: .18; transform: scale(.8); }
+.vidas svg { width: 12px; height: 15px; fill: var(--tinta); transition: opacity .2s, transform .3s; }
+.vidas svg.gastada { opacity: .18; transform: scale(.8); }
 .juego .cerrar { top: 10px; right: 10px; color: var(--tinta); }
 .juego .cerrar:hover, .juego .cerrar:focus-visible { background: var(--linea); }
 .tablero { position: relative; border-radius: 4px; overflow: hidden; box-shadow: 0 0 0 2px var(--tinta); }
