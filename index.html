@@ -28,7 +28,7 @@
 <header class="top">
   <a class="entrar" href="/cuenta/">Entrar</a>
   <h1 class="marca" aria-label="taller.ink">
-    <span>taller</span><svg class="gota" viewBox="0 0 32 40" aria-hidden="true"><path d="M16 2S4 18 4 26a12 12 0 0 0 24 0C28 18 16 2 16 2z"/></svg><span>ink</span>
+    <span>taller</span><button class="gota-boton" type="button" aria-label="Jugar con la gota" aria-haspopup="dialog"><svg class="gota" viewBox="0 0 32 40" aria-hidden="true"><path d="M16 2S4 18 4 26a12 12 0 0 0 24 0C28 18 16 2 16 2z"/></svg></button><span>ink</span>
   </h1>
   <p class="bajada">Todo lo que sale del taller: apps que se abren en el navegador, programas para instalar y un par de aparatos con luces.</p>
 </header>
@@ -236,6 +236,27 @@
     <button class="cerrar" value="cerrar" aria-label="Cerrar"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15"/></svg></button>
   </form>
 </dialog>
+
+<dialog class="juego" id="juego" aria-labelledby="juego-titulo">
+  <div class="juego-caja">
+    <div class="marcador">
+      <h2 id="juego-titulo">Al tintero</h2>
+      <p class="puntos" aria-live="polite">Gotas <b>0</b></p>
+      <p class="record">Mejor <b>0</b></p>
+      <p class="vidas" aria-label="Manchas que quedan"><span></span><span></span><span></span></p>
+    </div>
+    <div class="tablero">
+      <canvas width="360" height="480" tabindex="0" aria-label="Hoja con el tintero. Muévelo con el dedo, el mouse o las flechas."></canvas>
+      <div class="aviso">
+        <h3></h3>
+        <p></p>
+        <button type="button"></button>
+      </div>
+    </div>
+    <form method="dialog"><button class="cerrar" value="cerrar" aria-label="Cerrar"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15"/></svg></button></form>
+  </div>
+</dialog>
+<script src="juego.js" defer></script>
 
 <script>
 // Descargas: la card abre un cuadro con su mismo tema para elegir el archivo
